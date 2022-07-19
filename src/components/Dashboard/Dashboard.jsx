@@ -1,14 +1,5 @@
 import { React, useEffect } from "react";
 import styles from "./Dashboard.module.css";
-import colorFilter from "../../assets/colorfilter.svg";
-import TaskDetail from "../TaskDetail/TaskDetail";
-import home from "../../assets/home.svg";
-import members from "../../assets/members.svg";
-import settings from "../../assets/settings.svg";
-import tasks from "../../assets/tasks.svg";
-import downarrow from "../../assets/downarrow.svg";
-import profileimage from "../../assets/profileimage.svg";
-import sidebarArrow from "../../assets/siderbar_arrow.svg";
 import { LogoutUser } from "../../redux/currentUser/currentUserAction";
 import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,29 +31,29 @@ const Dashboard = ({ children }) => {
           <div className={styles.sidebarHeader}>
             <div className={styles.sidebarHeaderContent}>
               <div className={styles.sidebarContent}>
-                <img src={colorFilter} alt='nocolorfilterimage' />
+                {/* <img src={colorFilter} alt='nocolorfilterimage' /> */}
                 <p className={styles.sidebarHeaderContentText}>Project M.</p>
               </div>
-              <img src={sidebarArrow} alt='nosidebararrowimage' />
+              {/* <img src={sidebarArrow} alt='nosidebararrowimage' /> */}
             </div>
           </div>
           <div className={styles.sidebarMenu}>
             <div className={styles.sidebarHome}>
-              <img src={home} alt='nohomeimage' />
+              {/* <img src={home} alt='nohomeimage' /> */}
               <Link to='/dashboard' className={styles.homeLink}>
                 <p className={styles.sidebarMenuContentText}>Home</p>
               </Link>
             </div>
             <div className={styles.sidebarTasks}>
-              <img src={tasks} alt='notaskimage' />
+              {/* <img src={tasks} alt='notaskimage' /> */}
               <p className={styles.sidebarMenuContentText}>Tasks</p>
             </div>
             <div className={styles.sidebarMembers}>
-              <img src={members} alt='nomemberimage' />
+              {/* <img src={members} alt='nomemberimage' /> */}
               <p className={styles.sidebarMenuContentText}>Members</p>
             </div>
             <div className={styles.sidebarSettings}>
-              <img src={settings} alt='nosettingimage' />
+              {/* <img src={settings} alt='nosettingimage' /> */}
               <p className={styles.sidebarMenuContentText}>Settings</p>
             </div>
             <div className={styles.sidebarLine}></div>
@@ -87,7 +78,7 @@ const Dashboard = ({ children }) => {
               />
 
               <div className='dropdown'>
-                <img
+                {/* <img
                   src={downarrow}
                   alt='nodownarrowimage'
                   className='dropdown-toggle'
@@ -95,7 +86,7 @@ const Dashboard = ({ children }) => {
                   id='dropdownMenuButton1'
                   data-bs-toggle='dropdown'
                   aria-expanded='false'
-                />
+                /> */}
                 <ul
                   className='dropdown-menu'
                   aria-labelledby='dropdownMenuButton1'

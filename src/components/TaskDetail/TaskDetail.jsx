@@ -1,21 +1,7 @@
 import { React, useEffect } from "react";
 import styles from "../Dashboard/Dashboard.module.css";
-import downarrow from "../../assets/downarrow.svg";
-import TaskEditModal from "../Modal/TaskEdit";
-import TaskDeleteModal from "../Modal/TaskDelete";
-import TaskCreateModal from "../Modal/TaskCreate";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import files from "../../assets/files.png";
-import comments from "../../assets/comments.png";
-import editdeleteproject from "../../assets/editdeleteproject.svg";
-import inviteuser from "../../assets/inviteuser.svg";
-import editIcon from "../../assets/editIcon.svg";
-import linkIcon from "../../assets/linkIcon.svg";
-import calendar from "../../assets/calendar.svg";
-import filterIcon from "../../assets/filterIcon.svg";
-import users from "../../assets/users.svg";
-import user from "../../assets/user.png";
 import {
   query,
   collection,
@@ -26,7 +12,6 @@ import {
   deleteDoc,
 } from "firebase/firestore/lite";
 import { auth, db } from "../../firebase/firebase";
-import { Fetch_Task } from "../../redux/taskDetail/taskAction";
 import { useState } from "react";
 
 const TaskDetail = () => {
@@ -40,23 +25,23 @@ const TaskDetail = () => {
     (item) => item.id === slug.projectId
   );
 
-  const fetchTaskData = async () => {
-    try {
-      const q = query(collection(db, "task"));
-      const doc = await getDocs(q);
-      // const data = doc.docs[0].data();
-      // const dataId = doc.docs[0].id;
-      doc.forEach((doc) => {
-        dispatch(Fetch_Task(doc.data()));
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  // const fetchTaskData = async () => {
+  //   try {
+  //     const q = query(collection(db, "task"));
+  //     const doc = await getDocs(q);
+  //     // const data = doc.docs[0].data();
+  //     // const dataId = doc.docs[0].id;
+  //     doc.forEach((doc) => {
+  //       dispatch(Fetch_Task(doc.data()));
+  //     });
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchTaskData();
-  }, []);
+  // useEffect(() => {
+  //   fetchTaskData();
+  // }, []);
 
   const [taskData, setTaskData] = useState([]);
 
@@ -95,45 +80,45 @@ const TaskDetail = () => {
       <div className={styles.projectnameandinvite}>
         <div className={styles.projectInfo}>
           {currentProject ? <p>{currentProject.projectname}</p> : ""}
-          <img src={editIcon} alt='noediticonimage' />
-          <img src={linkIcon} alt='nolinkiconimage' />
+          {/* <img src={editIcon} alt='noediticonimage' />
+          <img src={linkIcon} alt='nolinkiconimage' /> */}
         </div>
         <div className={styles.inviteuserinfo}>
-          <img
+          {/* <img
             src={inviteuser}
             alt='noinviteuserimage'
             className={styles.inviteuserimage}
-          />
+          /> */}
           <p>Invite</p>
-          <img src={users} alt='nousersimage' className={styles.usersimage} />
+          {/* <img src={users} alt='nousersimage' className={styles.usersimage} /> */}
         </div>
       </div>
       <div className={styles.filtersection}>
         <div className={styles.filter}>
-          <img
+          {/* <img
             src={filterIcon}
             alt='nofiltericonimage'
             className={styles.filtericonimage}
-          />
+          /> */}
           <p>Filter</p>
-          <img
+          {/* <img
             src={downarrow}
             alt='nodownarrowimage'
             className={styles.downarrowimage}
-          />
+          /> */}
         </div>
         <div className={styles.filterbydate}>
-          <img
+          {/* <img
             src={calendar}
             alt='nocalendarimage'
             className={styles.calendarimage}
-          />
+          /> */}
           <p>Today</p>
-          <img
+          {/* <img
             src={downarrow}
             alt='nodownarrowimage'
             className={styles.downarrowimage}
-          />
+          /> */}
         </div>
       </div>
       <div className={styles.tasksection}>
@@ -142,15 +127,15 @@ const TaskDetail = () => {
             <p className={styles.tododot}></p>
             <p className={styles.todotext}>To Do</p>
             <p className={styles.todolength}>{taskData.length}</p>
-            <img
+            {/* <img
               src={inviteuser}
               alt='noinviteuserimage'
               className={styles.todoimage}
               type='button'
               data-bs-toggle='modal'
               data-bs-target='#exampleTaskModal'
-            />
-            <TaskCreateModal />
+            /> */}
+            {/* <TaskCreateModal /> */}
           </div>
           <p className={styles.todoline}></p>
           {taskData.length > 0 ? (
@@ -167,7 +152,7 @@ const TaskDetail = () => {
                       {item.taskpriority}
                     </p>
                   </div>
-                  <img
+                  {/* <img
                     src={editdeleteproject}
                     alt='noeditdeletetask'
                     className='dropdown-toggle'
@@ -175,7 +160,7 @@ const TaskDetail = () => {
                     id='dropdownMenuButton1'
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
-                  />
+                  /> */}
                   <ul
                     className='dropdown-menu'
                     aria-labelledby='dropdownMenuButton1'
@@ -201,33 +186,33 @@ const TaskDetail = () => {
                       </p>
                     </li>
                   </ul>
-                  <TaskDeleteModal taskId={taskId} />
-                  <TaskEditModal taskId={taskId} />
+                  {/* <TaskDeleteModal taskId={taskId} />
+                  <TaskEditModal taskId={taskId} /> */}
                 </div>
                 <div className={styles.taskName}>{item.taskname}</div>
                 <div className={styles.taskDescription}>
                   {item.taskdescription}
                 </div>
                 <div className={styles.taskFooter}>
-                  <img
+                  {/* <img
                     src={user}
                     alt='nouserImage'
                     className={styles.userImage}
-                  />
+                  /> */}
                   <div className={styles.comments}>
-                    <img
+                    {/* <img
                       src={comments}
                       alt='nocommentsImage'
                       className={styles.commentsImage}
-                    />
+                    /> */}
                     <p className={styles.commentsText}>12 comments</p>
                   </div>
                   <div className={styles.files}>
-                    <img
+                    {/* <img
                       src={files}
                       alt='nofilesImage'
                       className={styles.filesImage}
-                    />
+                    /> */}
                     <p className={styles.filesText}>0 files</p>
                   </div>
                 </div>
@@ -263,7 +248,7 @@ const TaskDetail = () => {
                       {item.taskpriority}
                     </p>
                   </div>
-                  <img
+                  {/* <img
                     src={editdeleteproject}
                     alt='noeditdeletetask'
                     className='dropdown-toggle'
@@ -271,7 +256,7 @@ const TaskDetail = () => {
                     id='dropdownMenuButton1'
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
-                  />
+                  /> */}
                   <ul
                     className='dropdown-menu'
                     aria-labelledby='dropdownMenuButton1'
@@ -296,32 +281,32 @@ const TaskDetail = () => {
                       </p>
                     </li>
                   </ul>
-                  <TaskDeleteModal taskId={taskId} />
+                  {/* <TaskDeleteModal taskId={taskId} /> */}
                 </div>
                 <div className={styles.taskName}>{item.taskname}</div>
                 <div className={styles.taskDescription}>
                   {item.taskdescription}
                 </div>
                 <div className={styles.taskFooter}>
-                  <img
+                  {/* <img
                     src={user}
                     alt='nouserImage'
                     className={styles.userImage}
-                  />
+                  /> */}
                   <div className={styles.comments}>
-                    <img
+                    {/* <img
                       src={comments}
                       alt='nocommentsImage'
                       className={styles.commentsImage}
-                    />
+                    /> */}
                     <p className={styles.commentsText}>12 comments</p>
                   </div>
                   <div className={styles.files}>
-                    <img
+                    {/* <img
                       src={files}
                       alt='nofilesImage'
                       className={styles.filesImage}
-                    />
+                    /> */}
                     <p className={styles.filesText}>0 files</p>
                   </div>
                 </div>
